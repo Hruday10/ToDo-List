@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO LIST</title>
+    <style type="text/css">
+        .checked{
+            text-decoration: line-through;
+            font-style:itallic;
+            color:#333;
+        }
+    </style>
+</head>
+<body align="left">
+    <input type="text" id="to-do"/>
+    <button onclick="js_func()">ADD</button>
+    <ul id="MyList"></ul>
+    <script type="text/javascript">
+        var list=document.getElementById("MyList");
+        function js_func(){
+            var value=document.getElementById("to-do").value;
+            var li=document.createElement("LI");
+            var textNode=document.createTextNode(value);
+            li.appendChild(textNode);
+            list.appendChild(li);
+            //document.getElementById('mylist').innerHTML=list
+        }
+        list.addEventListener("click",function(ev){
+            if(ev.target.tagName == "LI"){
+                ev.target.classList.toggle("checked");
+            }
+        },false);
+    </script>
+</body>
+</html>
